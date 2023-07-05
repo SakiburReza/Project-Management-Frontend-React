@@ -1,0 +1,44 @@
+.project-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-details__name {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .project-details__intro {
+    margin-bottom: 20px;
+  }
+  
+  .project-details__info {
+    margin-bottom: 20px;
+  }
+  
+  .project-details__info-item {
+    margin-bottom: 10px;
+  }
+  
+  .project-details__members-heading {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .project-details__members-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .project-details__members-item {
+    margin-bottom: 5px;
+  }
+  
+  /* Add additional styles as needed */
+  
