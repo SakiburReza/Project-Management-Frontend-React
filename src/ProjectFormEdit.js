@@ -135,30 +135,6 @@ const ProjectForm = () => {
         </div>
         <button type="submit">Edit Project</button>
       </form>
-      <div className="form-group">
-        <label htmlFor="projectMembers">Project Members:</label>
-        {projectMembers.map((member, index) => (
-          <select
-            key={index}
-            id={`member${index}`}
-            name={`member${index}`}
-            value={member}
-            onChange={(e) => handleMemberChange(e, index)}
-          >
-            <option value="">Select </option>
-            {allMembers.map((member) => (
-              <option key={member.id} value={member}>
-                {member.username}
-              </option>
-            ))}
-          </select>
-        ))}
-        {projectMembers.length < 5 && (
-          <button type="button" onClick={handleAddMember}>
-            Add Member
-          </button>
-        )}
-      </div>
     </div>
   );
 };

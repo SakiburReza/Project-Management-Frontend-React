@@ -37,7 +37,7 @@ const ProjectDetailsPage = ({ project }: {project: Project}) => {
         )}
         <p className="project-details__info-item">End Date: {formatDate(project.endDateTime)}</p>
       </div>
-      <h3 className="project-details__members-heading">Project Members:</h3>
+     
      
     </div>
   );

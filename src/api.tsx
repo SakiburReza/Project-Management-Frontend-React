@@ -39,5 +39,6 @@ export const API = {
     getUserById: (id: number) => get("/get-user-by-id/"+id),
     getProjectById: (id : number) => get("/get-project-by-id/"+id),
     deleteProjectById : (id : number) =>post("/delete-project-by-id/"+id),
-    updateProject: (project: Project) => post("/update-project",project)
+    updateProject: (project: Project) => post("/update-project",project),
+    createJasperReport: () => get("/create-report")
  }

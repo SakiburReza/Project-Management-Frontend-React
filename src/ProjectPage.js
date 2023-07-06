@@ -4,6 +4,8 @@ import './ProjectPage.css'; // Import custom CSS for styling
 import {API} from "./api.tsx";
 import { useNavigate } from 'react-router-dom';
 import { PDFDownloadLink } from '@react-pdf/renderer';
+import { useSnackbar } from 'notistack';
+import { showSnackbar } from './Classes/entity_class.tsx';
 
 
 function get_Date(strDate) {
@@ -14,7 +16,7 @@ function get_Date(strDate) {
     var month = date.getMonth()+1;
     var year = date.getFullYear();
 
-    var str = day + "-" + month + "-" + year;
+    var str = year + "-" + month + "-" + day;
     return str;
   }
 
@@ -25,6 +27,7 @@ const ProjectPage = () => {
   const [startDateFilter, setStartDateFilter] = useState('');
   const [endDateFilter, setEndDateFilter] = useState('');
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     // Fetch projects from the database
@@ -37,7 +40,7 @@ const ProjectPage = () => {
       .catch(error => {
         console.error('Error fetching projects:', error.response.data);
       });
-  }, [filteredProjects]);
+  }, [projects]);
 
  
 
@@ -95,7 +98,15 @@ const ProjectPage = () => {
   };
 
   const handleCreateJasperReport = projectId => {
-    // Handle create Jasper report logic
+     API.createJasperReport().then((r)=>{
+      if(r.data && r.status ==200){
+        showSnackbar(enqueueSnackbar, r.data, () => {});
+      }
+      else{
+        showSnackbar(enqueueSnackbar, "Test", () => {});
+      }
+      console.log(r.data)
+     })
   };
 
   return (
@@ -134,7 +145,7 @@ const ProjectPage = () => {
       </table>
       <div>
         <button className="action-btn view-btn" onClick={() => handleCreateProject()}>Create Project</button>
-        <button className="action-btn view-btn">Create Jasper Report</button>
+        <button className="action-btn view-btn" onClick={() => handleCreateJasperReport()}>Create Jasper Report</button>
       </div>
     </div>
   );

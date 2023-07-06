@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<h1>Projects in html</h1>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+            <tr th:each ="project: ${pl}">
+              <td>{project.name}</td>
+              <td>{project.intro}</td>
+              <td>{project.owner.username}</td>
+              <td>project?.startDateTime</td>
+              <td>project?.endDateTime</td>
+            </tr>
+        </tbody>
+      </table>
+</body>

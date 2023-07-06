@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ProjectForm.css";
 import { API } from "./api.tsx";
 import { Project, User_Project } from "./Classes/entity_class.tsx";
+import CheckboxList from "./List";
 
 const ProjectForm = () => {
   const [formData, setFormData] = useState({
@@ -149,13 +150,8 @@ const ProjectForm = () => {
         <button type="submit">Create Project</button>
       </form>
       <div>
-      <h2>User List</h2>
-      <ul>
-        {allMembers.map((user) => (
-          <li key={user.id}>{user.username}</li>
-        ))}
-      </ul>
-    </div>
+        <CheckboxList />
+      </div>
     </div>
   );
 };
